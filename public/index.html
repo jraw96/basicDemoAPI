@@ -1,0 +1,61 @@
+<!doctype html>
+<html ng-app="ctrl"> 
+    <head>
+        <!-- Standard declarations -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Optimize mobile viewport -->
+        <title> Javascript API Demo </title>
+
+            <!-- Load  Jquery -->
+            <script src="/libraries/jquery.js"></script><!-- load jquery -->
+
+            <!-- Bootstrap Magic -->
+            <link rel="stylesheet" href="/libraries/w3CSS.css"> <!-- W3 school style sheet -->
+            <link rel="stylesheet" href="/libraries/bootstrapStyleSheet.css"><!-- load bootstrap -->
+            <script src="/libraries/bootstrap.js"></script> <!-- more bootstrap -->
+            <link rel="stylesheet" href="/css/styles.css"> <!-- My own style sheet too. -->
+            
+            <script src="/libraries/angular.js"></script><!-- load angular -->
+            <script src="./controllers/app.controller.js"></script> <!-- Bind the app controller to the front end -->
+    </head>
+    
+    <!-- Set the main controller -->
+    <body ng-controller="myController as ctrl">  
+
+        
+        <div class="container" style="margin-bottom: 30px">
+            <h1>APIs in Javascript - Demo </h1><br>
+
+        <div class="row">
+            <div class="col-lg-5">
+
+                <!-- User Interface --> 
+                <h3 style="margin-top: 0px; margin-bottom: 10px"> My API buttons </h3>
+
+                <!-- Get Item Button -->
+                <button type="button" ng-click="getItems()" class="btn btn-success" style="margin-bottom: 20px">Get Items</button>
+                <br>
+
+                <!-- Insert Item Button -->
+                <button type="button" ng-click="insertItem()" class="btn btn-info">Insert an item</button>
+                <input type="text" ng-model="addItemText" class="form-control input-sm">
+                <br>
+
+                <!-- Delete Item Button -->
+                <button type="button" ng-click="deleteItem()" class="btn btn-danger">Delete an item</button>
+                <input type="text" ng-model="deleteItemText" class="form-control input-sm">
+
+            </div>
+
+            <!-- View the request built in real time -->
+            <div class="col-lg-6">
+                <label> My Items </label> 
+                <div class="well" style="word-wrap: break-word">              
+                    <ul style="list-style-type: none; padding: 0px">
+                        <li ng-repeat="obj in myDatabase">{{obj}}</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
